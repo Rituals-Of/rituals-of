@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Ritual",
+  "type": "object",
+  "required": ["id", "define", "measure", "analyze", "improve", "control"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "define": { "type": "object", "required": ["invariant", "scope"] },
+    "measure": { "type": "object", "required": ["inputs", "baseline"] },
+    "analyze": { "type": "object", "required": ["failureModes"] },
+    "improve": { "type": "object", "required": ["change", "reversibility"] },
+    "control": { "type": "object", "required": ["check", "evidence", "owner"] }
+  }
+}
