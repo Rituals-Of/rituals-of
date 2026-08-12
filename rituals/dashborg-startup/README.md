@@ -1,5 +1,7 @@
 # Dashborg startup and verification
 
+Method: DMAIC. This is a DMAIC ritual type definition.
+
 ## Define
 
 Invariant: the workspace-owned Dashborg task starts the local service and the

@@ -2,13 +2,34 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Ritual",
   "type": "object",
-  "required": ["id", "define", "measure", "analyze", "improve", "control"],
+  "required": ["id", "intent", "scope", "steps", "evidence"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "define": { "type": "object", "required": ["invariant", "scope"] },
-    "measure": { "type": "object", "required": ["inputs", "baseline"] },
-    "analyze": { "type": "object", "required": ["failureModes"] },
-    "improve": { "type": "object", "required": ["change", "reversibility"] },
-    "control": { "type": "object", "required": ["check", "evidence", "owner"] }
-  }
+    "intent": { "type": "string", "minLength": 1 },
+    "scope": { "type": "string", "minLength": 1 },
+    "method": { "type": "string", "enum": ["dmaic"] },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "evidence": { "type": "string", "minLength": 1 },
+    "dmaic": {
+      "type": "object",
+      "required": ["define", "measure", "analyze", "improve", "control"],
+      "properties": {
+        "define": { "type": "object", "required": ["invariant", "scope"] },
+        "measure": { "type": "object", "required": ["inputs", "baseline"] },
+        "analyze": { "type": "object", "required": ["failureModes"] },
+        "improve": { "type": "object", "required": ["change", "reversibility"] },
+        "control": { "type": "object", "required": ["check", "evidence", "owner"] }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "method": { "const": "dmaic" } }, "required": ["method"] },
+      "then": { "required": ["dmaic"] }
+    }
+  ]
 }
