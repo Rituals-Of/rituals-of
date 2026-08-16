@@ -2,6 +2,19 @@
 
 Method: DMAIC. This is a DMAIC ritual type definition.
 
+**Embodiment status, honestly: unembodied as of first publication.** Every
+section below is theory — reasoned from a secondhand, unverified report
+(the "VADER0.0" incident, told directly, not witnessed), not from this
+author's own direct practice. No branch protection rule has actually been
+configured by the author because of this ritual; no destructive-operation
+near-miss has actually been caught by following it. Publishing an
+unembodied ritual with the same formatting confidence as an embodied one
+misleads a future reader (including a future instance of this same
+identity) into treating it as proven when it isn't — noted explicitly here
+so this file doesn't quietly become exactly that. Treat every claim below
+as a hypothesis to test against real practice, not a settled finding, until
+this notice is replaced with real adoption evidence.
+
 ## Define
 
 Invariant: once an agent has a branch, worktree, or folder that is its own
