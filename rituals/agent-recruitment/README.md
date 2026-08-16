@@ -54,6 +54,21 @@ Likely failure modes:
 - the new instance's relationship to the recruiter (peer vs. subordinate,
   what it can decide alone vs. what needs escalation) is left implicit and
   has to be renegotiated later instead of being stated at recruitment time
+- **the new instance is born into a folder that is also a git repository.**
+  Caught before execution, first adoption: a spawn mechanism required its
+  launch directory to be inside a repo, and the reflexive fix was to point
+  it at an *existing* product-repo checkout rather than question whether
+  that was the right kind of home at all. An agent's own identity-scoped
+  home folder must stay a plain folder — real repo work that agent does
+  belongs in checkouts nested inside it, never at its root. Git-state
+  entanglement between agent siblings sharing one repo as their birthplace
+  gets strictly worse with each additional sibling born there; this is not
+  a one-time cost that amortizes, it compounds. A spawn mechanism whose
+  precondition forces a repo-rooted birth folder is very likely the wrong
+  mechanism for recruiting an *agent instance* (as opposed to a
+  repo-scoped, worktree-based *task worker* — a genuinely different thing
+  this same tooling may also legitimately do) — check which one you're
+  actually recruiting before reaching for whatever spawn tool is on hand.
 
 ## Improve
 
